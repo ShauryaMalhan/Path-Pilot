@@ -1,0 +1,51 @@
+<!-- views/home.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Occupation Risk Level Checker</title>
+</head>
+<body>
+    <h1>Job Score Checker</h1>
+
+    <form id="occupationForm">
+        <label for="occupation">Enter Occupation:</label>
+        <input type="text" id="occupation" name="occupation" required>
+        <button type="button" onclick="checkRiskLevel()">Check Job Score</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        async function checkRiskLevel() {
+            const occupationInput = document.getElementById('occupation');
+            const resultDiv = document.getElementById('result');
+
+            try {
+                const response = await fetch('http://localhost:5000/get-risk-level', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        occupation: occupationInput.value,
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    resultDiv.innerHTML = `<p>Job Score: ${data.risk_level}</p>`;
+                } else {
+                    resultDiv.innerHTML = `<p>${data.message}</p>`;
+                }
+            } catch (error) {
+                console.error('Error:', error.message);
+                resultDiv.innerHTML = '<p>An error occurred. Please try again later.</p>';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Form</title>
+
+
+</head>
+
+<style>
+    :root {
+    --primary: #B6FFFA;
+    --secondary: #7edbfc;
+    --gradient1: #80B3FF;
+    --gradient2: #687EFF;
+    --green: #4CAF50;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--primary);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    background: var(--gradient1);
+    clip-path: circle(50% at 50% 50%);
+    transition: all 0.3s ease;
+}
+
+.header:hover {
+    clip-path: circle(100% at 50% 50%);
+}
+
+.header-text {
+    font-size: 30px;
+    padding: 20px;
+    margin-bottom: 0;
+}
+
+.quiz-container {
+    max-width: 600px;
+    padding: 20px;
+    background: var(--gradient2);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    align-content: center;
+    justify-content: center;
+    padding-top: 100px;
+    z-index: 1;
+    padding-top: 50px;
+    margin-top: 90px;
+    
+}
+
+.question-box {
+    position: relative;
+
+}
+
+.question-group {
+    display: none;
+}
+
+.question-group.active {
+    display: block;
+}
+
+.question {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+}
+
+.option {
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    font-size: 40px;
+}
+
+.option:hover {
+    transform: scale(1.05);
+}
+
+button {
+    background-color: var(--green);
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    align-self: flex-end;
+}
+.que{
+    font-size: 20px;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: var(--gradient1);
+    transition: background-color 0.3s ease;
+}
+
+ @keyframes walk {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(250px);
+    }
+    50% {
+        transform: translateX(500px);
+    }
+    75% {
+        transform: translateX(750px);
+  
+    }
+    100% {
+        transform: translateX(1000px);
+  
+    }
+  }
+
+.walking-image {
+    position: absolute;
+    top: 50%; 
+    left: -50px;
+    
+    width: 50px; 
+    height: 10px;
+    background: url('https://drive.google.com/file/d/1PzjCULea3CBCWPOByAleFvxaVbb8o3N_/view?usp=drive_link') no-repeat center center; 
+    background-size: cover;
+    animation: walk 15s linear infinite; 
+  }
+   
+   
+</style>
+
+<body>
+    <div class="header" id="header">
+        <h1 class="header-text">Personality Quiz</h1>
+    </div>
+    <div class="walking-image">
+        <img src="/hi.gif" alt="" height="400px">
+    </div>
+
+    <div class="quiz-container">
+        <form method="post" action="/answer">
+            <div class="question-box question-group active" id="question1">
+                <div class="que">
+                <label for="answer1">Question 1: You stumble upon a lost baby animal</label><br>
+            </div>
+                <input type="radio" class="option" name="answer1" value="option1">Approach gently, assessing its needs and surroundings.<br>
+                <input type="radio" class="option" name="answer1" value="option2">Tenderly scoop it up, offering soothing words<br>
+                <input type="radio" class="option" name="answer1" value="option3">Excitedly notice the baby animal, relishing the chance for a heartwarming encounter with nature.<br>
+                <input type="radio" class="option" name="answer1" value="option4">Eagerly take out your camera, envisioning the delightful story<br>
+                
+            </div>
+
+            <div class="question-box question-group hidden" id="question2">
+                <div class="que">
+                <label for="answer2">Question 2: You have a free Saturday</label><br>
+            </div>
+                <input type="radio" class="option" name="answer2" value="option1">Finally tackle that closet chaos or fix that wobbly table<br>
+                <input type="radio" class="option" name="answer2" value="option2"> Mix in some laundry, a Netflix break, and maybe a nap<br>
+                <input type="radio" class="option" name="answer2" value="option3"> Wake up, see how you feel, roll with it<br>
+                <input type="radio" class="option" name="answer2" value="option4">Sort of want to clean, sort of want to binge-watch<br>
+            
+            </div>
+
+            <div class="question-box question-group hidden" id="question3">
+                <div class="que">
+                <label for="answer3">Question 3: You're stuck on a creative project</label><br>
+            </div>
+                <input type="radio" class="option" name="answer3" value="option1">Dive into research, gather inspiration, and power through the creative block with a determined work ethic<br>
+                <input type="radio" class="option" name="answer3" value="option2"> Break the project into smaller tasks, setting clear goals to conquer the challenge step by step.<br>
+                <input type="radio" class="option" name="answer3" value="option3"> Take a step back, acknowledge the creative struggle, and give yourself a break to recharge and gain fresh perspectives.<br>
+                <input type="radio" class="option" name="answer3" value="option4"> Reflect on your strengths and weaknesses, seek feedback, and adapt your approach to align with your creative strengths.
+                <br>
+            </div>
+
+            <div class="question-box question-group hidden" id="question4">
+                <div class="que">
+                <label for="answer4">Question 4: You receive a surprise invitation to a lively party</label><br>
+            </div>
+                <input type="radio" class="option" name="answer4" value="option1">Politely decline the invitation<br>
+                <input type="radio" class="option" name="answer4" value="option2"> Express gratitude for the invite, but explain your dedication to a work project that requires your attention<br>
+                <input type="radio" class="option" name="answer4" value="option3"> Embrace the spontaneous invite, rearrange your schedule to attend, and look forward to enjoying a lively evening with friends.<br>
+                <input type="radio" class="option" name="answer4" value="option4"> Welcome the surprise invitation, prioritize social connections, and make the most of the opportunity to unwind at the lively party
+            <br>
+            </div>
+
+            <div class="question-box question-group hidden" id="question5">
+                <div class="que">
+                <label for="answer5">Question 5: You discover a disagreement with a close friend</label><br>
+            </div>
+                <input type="radio" class="option" name="answer5" value="option1">Confront the disagreement directly, engage in open communication<br>
+                <input type="radio" class="option" name="answer5" value="option2"> Address the issue honestly, express your feelings<br>
+                <input type="radio" class="option" name="answer5" value="option3"> avoid confrontation to maintain harmony<br>
+                <input type="radio" class="option" name="answer5" value="option4"> Hesitate to bring up the disagreement, fearing it might strain the friendship
+                <br>
+            </div>
+
+
+            
+
+            <div class="question-box question-group hidden" id="question6">
+                <div class="que">
+                <label for="answer6">Question 6: Do you prefer</label><br>
+            </div>
+                <input type="radio" class="option" name="answer6" value="option1"> Cherish quiet moments alone<br>
+                <input type="radio" class="option" name="answer6" value="option2"> activities that don't require constant interaction<br>
+                <input type="radio" class="option" name="answer6" value="option3"> Thrive in social settings, seeking connection<br>
+                <input type="radio" class="option" name="answer6" value="option4"> Love socializing, finding joy and energy in the company of friends
+                <br>
+                
+            </div>
+
+            <div class="question-box question-group hidden" id="question7">
+                <div class="que">
+                <label for="answer7">Question 7: When making decisions</label><br>
+            </div>
+                <input type="radio" class="option" name="answer7" value="option1"> Rely on concrete information and past experiences<br>
+                <input type="radio" class="option" name="answer7" value="option2"> Analyze the situation methodically, gathering detailed information before making a decision<br>
+                <input type="radio" class="option" name="answer7" value="option3"> Trust your gut instinct<br>
+                <input type="radio" class="option" name="answer7" value="option4"> Embrace a holistic view, considering possibilities and potential outcomes
+                <br>
+                
+            </div>
+
+            <div class="question-box question-group hidden" id="question8">
+                <div class="que">
+                <label for="answer8">Question 8: When resolving conflicts</label><br>
+            </div>
+                <input type="radio" class="option" name="answer8" value="option1"> Approach conflicts analytically<br>
+                <input type="radio" class="option" name="answer8" value="option2">  Prioritize clear communication and rational discussion<br>
+                <input type="radio" class="option" name="answer8" value="option3"> Address conflicts empathetically<br>
+                <input type="radio" class="option" name="answer8" value="option4">  Navigate conflicts with sensitivity, emphasizing emotional connection
+                <br>
+                
+            </div>
+
+            <div class="question-box question-group hidden" id="question9">
+                <div class="que">
+                <label for="answer9">Question 9: Do you prefer having</label><br>
+            </div>
+            <input type="radio" class="option" name="answer9" value="option1"> finding comfort in organized schedules and clear objectives.<br>
+            <input type="radio" class="option" name="answer9" value="option2"> Enjoy a sense of control, thriving when tasks are planned<br>
+            <input type="radio" class="option" name="answer9" value="option3"> enjoying the flexibility of open-ended plans and adapting to the flow of the moment<br>
+            <input type="radio" class="option" name="answer9" value="option4"> Prefer having options open
+            <br>
+            </div>
+
+            <div class="question-box question-group hidden" id="question10">
+                <div class="que">
+                <label for="answer10">Question 10: You're in a group project with tight deadlines, and one team member is consistently falling short on their tasks. How would you handle it?
+                </label><br>
+            </div>
+            <input type="radio" class="option" name="answer10" value="option1"> Confront them during a meeting, expressing frustration at their lack of contribution.
+            <br>
+            <input type="radio" class="option" name="answer10" value="option2"> Send a strongly worded email, warning them about consequences if they don't improve immediately.
+            <br>
+            <input type="radio" class="option" name="answer10" value="option3"> Schedule a private meeting to discuss their challenges and offer support.
+            <br>
+            <input type="radio" class="option" name="answer10" value="option4">Bring up the issue in a team meeting, emphasizing collaboration to overcome challenges.
+            <br>
+            </div>
+
+            <div class="question-box question-group hidden" id="question11">
+                <div class="que">
+                <label for="answer11">Question 11: You're planning a weekend getaway with friends, and the initial destination choice falls through due to unforeseen circumstances. How do you respond?
+
+                </label><br>
+            </div>
+            <input type="radio" class="option" name="answer11" value="option1"> Express worry and frustration
+
+            <br>
+            <input type="radio" class="option" name="answer11" value="option2">Share your disappointment openly
+
+            <br>
+            <input type="radio" class="option" name="answer11" value="option3"> Quickly adapt to the change
+
+            <br>
+            <input type="radio" class="option" name="answer11" value="option4">Take the lead in suggesting a new plan.
+            <br>
+            </div>
+
+            <div class="question-box question-group hidden" id="question12">
+                <div class="que">
+                <label for="answer12">Question 12: You and a friend are in a competitive trivia contest. How do you approach your different preparation methods?
+
+
+                </label><br>
+            </div>
+            <input type="radio" class="option" name="answer12" value="option1"> Express confidence in your method
+
+            <br>
+            <input type="radio" class="option" name="answer12" value="option2">Assert your unique approach
+
+            <br>
+            <input type="radio" class="option" name="answer12" value="option3"> Discuss both strategies openly, find a middle ground for mutual benefit
+
+            <br>
+            <input type="radio" class="option" name="answer12" value="option4">Acknowledge your friend's style, propose a joint approach for a supportive and enjoyable experience.
+            <br>
+            </div>
+
+
+            <div class="question-box question-group hidden" id="question13">
+                <div class="que">
+                <label for="answer13">Question 13: You and your friends are planning a surprise party, and there's a debate on how to make it unforgettable. How do you join the discussion?
+
+
+                </label><br>
+            </div>
+            <input type="radio" class="option" name="answer13" value="option1"> Share a well-thought-out plan for a seamlessly organized and logically flowing party
+
+            <br>
+            <input type="radio" class="option" name="answer13" value="option2">Analyze the party requirements
+
+            <br>
+            <input type="radio" class="option" name="answer13" value="option3"> Introduce a quirky and unconventional party theme
+
+            <br>
+            <input type="radio" class="option" name="answer13" value="option4">Bring a playful and imaginative twist to the discussion
+            <br>
+            </div>
+
+
+            <div class="question-box question-group hidden" id="question14">
+                <div class="que">
+                <label for="answer14">Question 14: In an escape room with friends, there's a debate on how to crack a technical puzzle. How do you contribute?
+
+
+
+                </label><br>
+            </div>
+            <input type="radio" class="option" name="answer14" value="option1"> Share tech-savvy insights, breaking down the puzzle with a technical approach.
+
+
+            <br>
+            <input type="radio" class="option" name="answer14" value="option2">showcasing a cool technical solution to conquer the puzzle
+
+            <br>
+            <input type="radio" class="option" name="answer14" value="option3"> Foster teamwork
+
+            <br>
+            <input type="radio" class="option" name="answer14" value="option4">proposing a solution without diving too deep into technical details
+            <br>
+            </div>
+
+
+            <div class="question-box question-group hidden" id="question15">
+                <div class="que">
+                <label for="answer15">Question 15: During a game night with friends, there's a debate about the rules for a board game. How do you handle it?
+
+
+
+
+                </label><br>
+            </div>
+            <input type="radio" class="option" name="answer15" value="option1"> Stick to the rulebook
+
+
+            <br>
+            <input type="radio" class="option" name="answer15" value="option2">Express frustration with any rule deviations
+
+            <br>
+            <input type="radio" class="option" name="answer15" value="option3">  Suggest rule modifications for a more enjoyable and flexible game experience.
+
+
+            <br>
+            <input type="radio" class="option" name="answer15" value="option4">Propose a relaxed "house rules" version
+            <br>
+            </div>
+
+
+            
+
+            
+
+            <button type="button" id="nextBtn">Next</button>
+        <button type="submit" id="submitBtn" >Submit Quiz</button>
+        </form>
+    </div>
+    
+
+    <script>
+
+    document.getElementById('nextBtn').addEventListener('click', function () {
+        var activeGroup = document.querySelector('.question-group.active');
+        activeGroup.classList.remove('active');
+
+        var nextGroup = activeGroup.nextElementSibling;
+        if (nextGroup) {
+            nextGroup.classList.add('active');
+        } else {
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('submitBtn').style.display = 'block';
+        }
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', function () {
+        // Add your logic to process quiz answers here
+        alert('Quiz submitted!');
+    });
+    </script>
+</body>
+</html>
+

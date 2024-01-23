@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        
+:root {
+    --primary: #B6FFFA;
+    --secondary: #7edbfc;
+    --gradient1: #80B3FF;
+    --gradient2: #4082e6;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    background-color: var(--primary);
+    /* background-image: url("back2.png"); */
+}
+
+.content {
+    margin-top: 200px;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--gradient2);
+}
+
+.result-box {
+    background-color: var(--gradient2);
+    padding: 100px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px; /* Adjust the max-width as needed */
+    margin: 0 auto;
+    position: relative; /* Add position relative */
+    z-index: 2; /* Set a higher z-index value */
+}
+
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    background: var(--gradient1);
+    clip-path: circle(50% at 50% 50%);
+    transition: all 0.3s ease;
+    color: white;
+    padding-top: 2%;
+}
+
+.header:hover {
+    clip-path: circle(100% at 50% 50%);
+}
+p{
+    font-size: 150%;
+}
+
+.header-text {
+    font-size: 50px;
+    padding: 20px;
+    margin-bottom: 0;
+}
+
+#images{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+.Image{
+    display: flex;
+    height: 335px;
+    z-index: 1;
+    margin-inline: -80px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="heading"></div>
+        <div class="header" id="header">
+            <h1 class="header-text">Suggested Fields:</h1>
+        </div>
+    </div>
+    
+    
+   
+
+    <div class="result-box">
+        <p><%= Choice_2.message.content%></p>
+    </div>
+        <div id="images">
+            <div class="Image">
+                <img src="architect.png" alt="">
+            </div>
+            <div class="Image">
+                <img src="business.png" alt="">
+            </div>
+            <div class="Image">
+                <img src="doctor.png" alt="">
+            </div>
+            <div class="Image">
+                <img src="lawyer.png" alt="">
+            </div>
+            <div class="Image">
+                <img src="super-girl.png" alt="">
+            </div>
+            <div class="Image">
+                <img src="nurse.png" alt="">
+            </div>
+            <div class="Image">
+                <img src="engineer.png" alt="">
+            </div>
+            <div class="Image">
+                <img src="air-hostess.png" alt="">
+            </div>
+        </div>
+
+</div>
+</body>
+</html>

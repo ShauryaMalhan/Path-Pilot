@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <style>
+        h1{
+            font-family: 'Dancing Script', cursive;
+            font-size: 50px;
+            text-align: center;
+            color: var(--gradient2);
+            margin-top: -2%;
+        }
+        :root{
+            --primary: #B6FFFA;
+            --secondary: #7edbfc;
+            --gradient1: #80B3FF;
+            --gradient2: #4082e6;
+        }
+        body{
+            background-color: var(--secondary);
+        }
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+        #foot {
+                position: fixed; /* Change to fixed for it to be at the bottom */
+                bottom: 0;
+                width: 100%;
+                margin-bottom: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Poppins", sans-serif;
+              }
+        
+        
+        
+        .footer {
+          position: relative;
+          width: 100%;
+          background: #3586ff;
+          height: 85px;
+          padding: 0px 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+        
+        .social-icon{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px ;
+            flex-wrap: wrap;
+            z-index: 1001;
+        }
+        .menu {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0px 100px;
+          flex-wrap: wrap;
+        }
+        
+        .social-icon__item,
+        .menu__item {
+          list-style: none;
+        }
+        
+        .social-icon__link {
+          font-size: 2rem;
+          color: #fff;
+          margin: 0 10px;
+          display: inline-block;
+          transition: 0.5s;
+        }
+        .social-icon__link:hover {
+          transform: translateY(-10px);
+        }
+        
+        .menu__link {
+          font-size: 1.2rem;
+          color: #fff;
+          margin: 0 10px;
+          display: inline-block;
+          transition: 0.5s;
+          text-decoration: none;
+          opacity: 0.75;
+          font-weight: 300;
+        }
+        
+        .menu__link:hover {
+          opacity: 1;
+        }
+        
+        .footer p {
+          color: #fff;
+          margin: 15px 0 10px 0;
+          font-size: 1rem;
+          font-weight: 300;
+        }
+        
+        .wave {
+          position: absolute;
+          top: -100px;
+          left: 0;
+          width: 100%;
+          height: 100px;
+          background: url("https://i.ibb.co/wQZVxxk/wave.png");
+          background-size: 1000px 100px;
+          transform: translate(0px, 20px);
+        }
+        
+        .wave#wave1 {
+          z-index: 1000;
+          opacity: 1;
+          bottom: 0;
+          animation: animateWaves 4s linear infinite;
+        }
+        
+        .wave#wave2 {
+          z-index: 999;
+          opacity: 0.5;
+          bottom: 10px;
+          animation: animate 4s linear infinite !important;
+        }
+        
+        .wave#wave3 {
+          z-index: 1000;
+          opacity: 0.2;
+          bottom: 15px;
+          animation: animateWaves 3s linear infinite;
+        }
+        
+        .wave#wave4 {
+          z-index: 999;
+          opacity: 0.7;
+          bottom: 20px;
+          animation: animate 3s linear infinite;
+        }
+        
+        @keyframes animateWaves {
+          0% {
+            background-position-x: 1000px;
+          }
+          100% {
+            background-positon-x: 0px;
+          }
+        }
+        
+        @keyframes animate {
+          0% {
+            background-position-x: -1000px;
+          }
+          100% {
+            background-positon-x: 0px;
+          }
+        }
+        #logo{
+            display: flex;
+            justify-content: start;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+          }
+          #cor{
+            height: 50px;
+          }
+          .sections{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            border-radius: 10px 100px / 120px;
+            padding: 20px;
+            margin: 15px;
+            font-size: 20px;
+            
+          }
+          #one , #three{
+            background-color: #144058;
+            color: white;
+            margin-inline: 250px;
+          }
+          #two, #four{
+            background-color: #d0d6d6;
+            color: black;
+            margin-inline: 250px;
+          }
+          a{
+            text-decoration: none;
+          }
+          #first{
+            text-align: center;
+            display: none;
+          }
+          #second{
+            display: none;
+          }
+          #third{
+            display: none;
+          }
+          #fourth{
+            display: none;
+          }
+          #back{
+            display: none;
+            text-align: end;
+            margin-top: -4%;
+            position: relative;
+            z-index: 1;
+          }
+
+          #arr{
+            height: 50px;
+          }
+          .app{
+            font-size: 20px;
+            color: blueviolet;
+          }
+          #text_block{
+            margin-left: 130px;
+            margin-top: 7%;
+            width: 1000px;
+          }
+    </style>
+</head>
+<body>
+    <a href="/">
+      <div id="logo"><img id="cor" src="Logo.png" alt=""></div>
+    </a>
+    <a href="about.html" id="back">
+        <img id="arr" src="back_arrow.png" alt="">
+    </a>
+    <h1>ABOUT</h1>
+    <div id="sec">
+        <div onclick="vanish('first')" id="one" class="sections">National Education Policy 2020</div>
+        <div onclick="vanish('second')" id="two" class="sections">About PathPilot</div>
+        <div onclick="vanish('third')" id="three" class="sections">Future Scope</div>
+        <div onclick="vanish('fourth')" id="four" class="sections">About Us</div>
+    </div>
+    <div id="text_block">
+        <div id="first" class="app">The National Education Policy 2020 marks a pivotal shift in India's educational landscape, envisioning a transformation rooted in Indian ethos. This policy aims to propel the nation into an equitable and vibrant knowledge society by providing high-quality education accessible to all. At the heart of NEP 2020 lies a comprehensive restructuring, including new subject combinations for 11th and 12th grades. This shift in educational paradigms emphasizes the need for innovative tools like Pathpilot to guide students through these changes, ensuring a smooth transition into the new framework.</div>
+        <div id="second" class="app">Pathpilot stands as a beacon in the ever-evolving realm of career guidance. In a world brimming with choices, the importance of informed decision-making cannot be overstated. Our platform serves as a compass for individuals seeking clarity in their career paths. Using a unique blend of personality analysis and curated roadmaps, Pathpilot not only provides personalized career suggestions but also details step-by-step guides for success in chosen professions. <br><br> Understanding the complexities introduced by NEP 2020, Pathpilot takes center stage by offering specialized guidance for 11th and 12th-grade subject combinations. Our interactive UI makes the journey enjoyable, with a personality quiz that goes beyond just analysis; it becomes a fun and insightful experience.
+            <div id="sent">
+          <ol>
+            <li>
+              <h3>Start Page:</h3>
+              <ul>
+                <li>Welcome users to the Pathpilot homepage.</li>
+                <li>Career Counseling: Discover your ideal career path.</li>
+                <li>NEP Counseling: Get subject combination suggestions for 11th and 12th grades</li>
+              </ul>
+            </li>
+            <li>
+              <h3>Career Counseling:</h3>
+              <ul>
+                <li>Selecting "Career Counseling" leads to a Personality Quiz.</li>
+                <li>Users answer questions to identify their personality traits.</li>
+                <li>OpenAI API analyzes responses and generates personalized career suggestions.</li>
+                <li>Results provide insights into suitable career paths based on individual traits.</li>
+              </ul>
+            </li>
+            <li>
+              <h3>NEP Counseling:</h3>
+              <ul>
+                <li>Choosing "NEP Counseling" initiates a Personality Quiz.</li>
+                <li>Questions aim to identify traits crucial for subject combination suggestions.</li>
+                <li>Results provide tailored recommendations for 11th and 12th-grade subjects.</li>
+                <li>Guidance aligns with the National Education Policy 2020.</li>
+              </ul>
+            </li>
+            <li>
+              <h3>Roadmaps:</h3>
+              <ul>
+                <li>The "Roadmaps" option allows users to explore detailed steps for any career path.</li>
+                <li>Users can select a profession and view a roadmap outlining the key milestones and actions required.</li>
+                <li>Provides practical insights on pursuing and succeeding in chosen careers. </li>
+              </ul>
+            </li>
+            <li>
+              <h3>Parental Input:</h3>
+              <ul>
+                <li>For parents, a dedicated option allows them to input their child's class 10th marksheet and co-curricular achievements in PDF format.</li>
+                <li>Pathpilot analyzes the information to identify the child's traits.</li>
+                <li>Subject suggestions are provided based on the child's unique characteristics.</li>
+              </ul>
+            </li>
+          </ol>
+          Pathpilot's flow is designed to be intuitive, interactive, and supportive, offering a comprehensive suite of tools to guide users through various aspects of career exploration and educational planning.
+          <br><br><br><br><br><br><br><br><br>
+            </div>
+        </div>
+        <div id="third" class="app">
+          <ol>
+            <li>Device Compatibility: Extend compatibility to various devices, ensuring users can access Pathpilot on smartphones, tablets, and desktops.</li>
+            <li>Mobile Application Development: Develop a mobile application to enhance accessibility and provide on-the-go guidance.</li>
+            <li>Multilingual Support: Translate the platform into multiple languages and dialects. Increase accessibility for users with diverse linguistic backgrounds.</li>
+            <li>Awareness Campaigns: Collaborate with school teachers to increase awareness among students about the benefits of using Pathpilot.
+              Provide resources for educators to incorporate Pathpilot into career counseling sessions.
+            </li>
+            <li>Continuous Improvement: Regularly update and iterate the platform based on user feedback and emerging educational trends.
+              Explore additional features to further enrich the user experience and guidance provided.
+              Pathpilot's future scope is centered on inclusivity, adaptability, and continuous improvement, aiming to reach a broader audience and provide enhanced support in career exploration and educational planning.
+                         </li>
+          </ol>
+        </div>
+        <div id="fourth" class="app"></div>
+    </div>
+    <div id="foot">
+        <div class="footer">
+            <div class="waves">
+              <div class="wave" id="wave1"></div>
+              <div class="wave" id="wave2"></div>
+              <div class="wave" id="wave3"></div>
+              <div class="wave" id="wave4"></div>
+            </div>
+            <ul class="social-icon">
+              <li class="social-icon_item"><a class="social-icon_link" href="#">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a></li>
+              <li class="social-icon_item"><a class="social-icon_link" href="#">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a></li>
+              <li class="social-icon_item"><a class="social-icon_link" href="#">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a></li>
+              <li class="social-icon_item"><a class="social-icon_link" href="#">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a></li>
+            </ul>
+            <ul class="menu">
+              <li class="menu_item"><a class="menu_link" href="#">Home</a></li>
+              <li class="menu_item"><a class="menu_link" href="#">About</a></li>
+              <li class="menu_item"><a class="menu_link" href="#">Services</a></li>
+              <li class="menu_item"><a class="menu_link" href="#">Team</a></li>
+              <li class="menu_item"><a class="menu_link" href="#">Contact</a></li>
+        
+            </ul>
+          
+          </footer>
+          <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+          <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </div>
+    <script>
+        function vanish(txt){
+            doc = document.getElementById('sec').style.display = 'none';
+            docs = document.getElementById(txt).style.display = 'block';
+            dd = document.getElementById('back').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

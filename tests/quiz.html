@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Form</title>
+
+
+</head>
+
+<style>
+    :root {
+    --primary: #B6FFFA;
+    --secondary: #7edbfc;
+    --gradient1: #80B3FF;
+    --gradient2: #687EFF;
+    --green: #4CAF50;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--primary);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    background: var(--gradient1);
+    clip-path: circle(50% at 50% 50%);
+    transition: all 0.3s ease;
+}
+
+.header:hover {
+    clip-path: circle(100% at 50% 50%);
+}
+
+.header-text {
+    font-size: 30px;
+    padding: 20px;
+    margin-bottom: 0;
+}
+
+.quiz-container {
+    max-width: 600px;
+    padding: 20px;
+    background: var(--gradient2);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    align-content: center;
+    justify-content: center;
+    padding-top: 100px;
+    z-index: 1;
+    padding-top: 50px;
+    margin-top: 90px;
+}
+
+.question-box {
+    position: relative;
+}
+
+.question-group {
+    display: none;
+}
+
+.question-group.active {
+    display: block;
+}
+
+.question {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+}
+
+.option {
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.option:hover {
+    transform: scale(1.05);
+}
+
+button {
+    background-color: var(--green);
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    align-self: flex-end;
+}
+.que{
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: var(--gradient1);
+    transition: background-color 0.3s ease;
+}
+.walking-image {
+    position: absolute;
+    top: 50%; 
+    left: -50px;
+    
+    width: 50px; /* Adjust the width as needed */
+    height: 10px; /* Adjust the height as needed */
+    background: url('path/to/walking-image.gif') no-repeat center center; /* Replace with your image URL */
+    background-size: cover;
+    animation: walk 15s linear infinite; /* Adjust the animation duration as needed */
+  }
+  
+  @keyframes walk {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(250px);
+    }
+    50% {
+        transform: translateX(500px);
+    }
+    75% {
+        transform: translateX(750px);
+  
+    }
+    100% {
+        transform: translateX(1000px);
+  
+    }
+  }
+</style>
+
+<body>
+    <div class="header" id="header">
+        <h1 class="header-text">Personality Quiz</h1>
+    </div>
+    <div class="walking-image">
+        <img src="output-onlinegiftools (1).gif" alt="" height="400px">
+    </div>
+
+    <div class="quiz-container">
+        <form method="post" action="/answer">
+            <div class="question-box question-group active" id="question1">
+                <div class="que">
+                <label for="answer1">Question 1: You stumble upon a lost baby animal</label><br>
+            </div>
+                <input type="radio" class="option" name="answer2" value="option1">Do you approach cautiously with gentle whispers<br>
+                <input type="radio" class="option" name="answer2" value="option2">Try to coax it out with playful noises<br>
+                
+            </div>
+
+            <div class="question-box question-group hidden" id="question2">
+                <div class="que">
+                <label for="answer2">Question 2: You have a free Saturday</label><br>
+            </div>
+                <input type="radio" class="option" name="answer2" value="option1">Do you plan a detailed itinerary of exciting activities<br>
+                <input type="radio" class="option" name="answer2" value="option2">Spontaneously go wherever the day takes you<br>
+            </div>
+
+            <div class="question-box question-group hidden" id="question3">
+                <div class="que">
+                <label for="answer3">Question 3: You're stuck on a creative project</label><br>
+            </div>
+                <input type="radio" class="option" name="answer3" value="option1">Do you push through and try to finish it even if it feels uninspired<br>
+                <input type="radio" class="option" name="answer3" value="option2">Take a break and come back to it later with fresh eyes<br>
+            </div>
+
+            <div class="question-box question-group hidden" id="question4">
+                <div class="que">
+                <label for="answer4">Question 4: You receive a surprise invitation to a lively party</label><br>
+            </div>
+                <input type="radio" class="option" name="answer4" value="option1">Do you enthusiastically RSVP, even if you have to rearrange plans<br>
+                <input type="radio" class="option" name="answer4" value="option2">Politely decline and prioritize your existing commitments<br>
+            </div>
+
+            <div class="question-box question-group hidden" id="question5">
+                <div class="que">
+                <label for="answer5">Question 5: You discover a disagreement with a close friend</label><br>
+            </div>
+                <input type="radio" class="option" name="answer5" value="option1">Do you directly address it and seek understanding<br>
+                <input type="radio" class="option" name="answer5" value="option2">Avoid the conversation for fear of conflict<br>
+            </div>
+
+
+            <div class="question-box question-group hidden" id="question5">
+                <div class="que">
+                <label for="answer5">Question 5: You discover a disagreement with a close friend</label><br>
+            </div>
+                <input type="radio" class="option" name="answer5" value="option1">Do you directly address it and seek understanding<br>
+                <input type="radio" class="option" name="answer5" value="option2">Avoid the conversation for fear of conflict<br>
+            </div>
+
+            <div class="question-box question-group hidden" id="question6">
+                <div class="que">
+                <label for="answer6">Question 6: Do you prefer</label><br>
+            </div>
+                <input type="radio" class="option" name="answer6" value="option1">socializing in large groups<br>
+                <input type="radio" class="option" name="answer6" value="option2">spending time alone<br>
+            </div>
+
+            <div class="question-box question-group hidden" id="question7">
+                <div class="que">
+                <label for="answer7">Question 7: When making decisions</label><br>
+            </div>
+                <input type="radio" class="option" name="answer7" value="option1">do you rely on concrete facts and data<br>
+                <input type="radio" class="option" name="answer7" value="option2">gut feelings and possibilities<br>
+            </div>
+
+            <div class="question-box question-group hidden" id="question8">
+                <div class="que">
+                <label for="answer8">Question 8: When resolving conflicts</label><br>
+            </div>
+                <input type="radio" class="option" name="answer8" value="option1">do you prioritize logic and objectivity<br>
+                <input type="radio" class="option" name="answer8" value="option2">or empathy and understanding<br>
+            </div>
+
+            <div class="question-box question-group hidden" id="question9">
+                <div class="que">
+                <label for="answer9">Question 9: Do you prefer having</label><br>
+            </div>
+                <input type="radio" class="option" name="answer9" value="option1">a structured schedule and plan ahead<br>
+                <input type="radio" class="option" name="answer9" value="option2"> staying flexible and adapting to changes<br>
+            </div>
+
+            <button type="button" id="nextBtn">Next</button>
+            <button type="submit" id="submitBtn" style="display:none;">Submit Quiz</button>
+        </form>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+

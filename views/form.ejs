@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <style>
+        h1{
+            font-family: 'Dancing Script', cursive;
+            font-size: 50px;
+            text-align: center;
+            color: var(--gradient2);
+        }
+        :root{
+            --primary: #B6FFFA;
+            --secondary: #7edbfc;
+            --gradient1: #80B3FF;
+            --gradient2: #4082e6;
+        }
+        body{
+            background-color: var(--secondary);
+        }
+        .frm{
+            position: relative;
+            z-index: 1000000;
+        }
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+        #foot {
+                position: fixed; /* Change to fixed for it to be at the bottom */
+                bottom: 0;
+                width: 100%;
+                margin-bottom: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Poppins", sans-serif;
+              }
+        
+        
+        
+        .footer {
+          position: relative;
+          width: 100%;
+          background: #3586ff;
+          height: 85px;
+          padding: 0px 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+        
+        .social-icon{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px ;
+            flex-wrap: wrap;
+            z-index: 1001;
+        }
+        .menu {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0px 100px;
+          flex-wrap: wrap;
+        }
+        
+        .social-icon__item,
+        .menu__item {
+          list-style: none;
+        }
+        
+        .social-icon__link {
+          font-size: 2rem;
+          color: #fff;
+          margin: 0 10px;
+          display: inline-block;
+          transition: 0.5s;
+        }
+        .social-icon__link:hover {
+          transform: translateY(-10px);
+        }
+        
+        .menu__link {
+          font-size: 1.2rem;
+          color: #fff;
+          margin: 0 10px;
+          display: inline-block;
+          transition: 0.5s;
+          text-decoration: none;
+          opacity: 0.75;
+          font-weight: 300;
+        }
+        
+        .menu__link:hover {
+          opacity: 1;
+        }
+        
+        .footer p {
+          color: #fff;
+          margin: 15px 0 10px 0;
+          font-size: 1rem;
+          font-weight: 300;
+        }
+        
+        .wave {
+          position: absolute;
+          top: -100px;
+          left: 0;
+          width: 100%;
+          height: 100px;
+          background: url("https://i.ibb.co/wQZVxxk/wave.png");
+          background-size: 1000px 100px;
+          transform: translate(0px, 20px);
+        }
+        
+        .wave#wave1 {
+          z-index: 1000;
+          opacity: 1;
+          bottom: 0;
+          animation: animateWaves 4s linear infinite;
+        }
+        
+        .wave#wave2 {
+          z-index: 999;
+          opacity: 0.5;
+          bottom: 10px;
+          animation: animate 4s linear infinite !important;
+        }
+        
+        .wave#wave3 {
+          z-index: 1000;
+          opacity: 0.2;
+          bottom: 15px;
+          animation: animateWaves 3s linear infinite;
+        }
+        
+        .wave#wave4 {
+          z-index: 999;
+          opacity: 0.7;
+          bottom: 20px;
+          animation: animate 3s linear infinite;
+        }
+        
+        @keyframes animateWaves {
+          0% {
+            background-position-x: 1000px;
+          }
+          100% {
+            background-positon-x: 0px;
+          }
+        }
+        
+        @keyframes animate {
+          0% {
+            background-position-x: -1000px;
+          }
+          100% {
+            background-positon-x: 0px;
+          }
+        }
+        h2 {
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    
+    </style>
+</head>
+<body>
+    
+  <h1>Subject Marks Form</h1>
+  <div class="frm">
+      <form id="marksForm">
+          <div id="subjectsContainer">
+              <!-- Subjects and Marks will be dynamically added here -->
+          </div>
+          <button type="button" onclick="addSubject()">Add Subject</button>
+          <button type="button" onclick="submitForm()">Submit</button>
+          <div>
+          <textarea name="achieve" id="ach" cols="30" rows="10">
+            achievements
+          </textarea>
+          </div>
+      </form>
+  
+      <script>
+          function addSubject() {
+              const subjectsContainer = document.getElementById('subjectsContainer');
+  
+              const subjectDiv = document.createElement('div');
+              subjectDiv.classList.add('subject');
+  
+              const subjectLabel = document.createElement('label');
+              subjectLabel.textContent = 'Subject:';
+  
+              const subjectInput = document.createElement('input');
+              subjectInput.type = 'text';
+              subjectInput.name = 'subjects[]';
+              subjectInput.required = true;
+  
+              const marksLabel = document.createElement('label');
+              marksLabel.textContent = 'Marks:';
+  
+              const marksInput = document.createElement('input');
+              marksInput.type = 'number';
+              marksInput.name = 'marks[]';
+              marksInput.required = true;
+              marksInput.max = 100; // Set the upper limit for marks
+  
+              subjectDiv.appendChild(subjectLabel);
+              subjectDiv.appendChild(subjectInput);
+              subjectDiv.appendChild(marksLabel);
+              subjectDiv.appendChild(marksInput);
+  
+              subjectsContainer.appendChild(subjectDiv);
+          }
+  
+          async function submitForm() {
+              const subjectsInputs = document.querySelectorAll('input[name="subjects[]"]');
+              const marksInputs = document.querySelectorAll('input[name="marks[]"]');
+  
+              const subjectsDict = {};
+  
+              subjectsInputs.forEach((subjectInput, index) => {
+                  const subject = subjectInput.value.trim();
+                  const marks = parseInt(marksInputs[index].value.trim());
+  
+                  if (subject !== '' && !isNaN(marks)) {
+                      subjectsDict[subject] = marks;
+                  }
+              });
+  
+              const dictionary = subjectsDict;
+              const achievementsText = document.getElementById('ach').value.trim();
+  
+              // Add achievements text to the subjects dictionary
+              subjectsDict['achievements'] = achievementsText;
+              
+              const result = await fetchMarks(dictionary);
+              console.log(await fetchMarks(dictionary));
+              alert(JSON.stringify(result.content.message, null, 2));
+
+              
+
+              
+          }
+
+          
+
+          async function fetchMarks(dictionary) {
+              const API_KEY = "secret";
+
+              try {
+                  const response = await fetch("https://api.openai.com/v1/chat/completions", {
+                      method: "POST",
+                      headers: {
+                          Authorization: `Bearer ${API_KEY}`,
+                          "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({
+                          model: "gpt-3.5-turbo",
+                          messages: [
+                              { role: "system", content: "You are a career counselor who knows about NEP policy." },
+                              {
+                                  role: "user",
+                                  content: `1. Humanities:
+          - Arabic
+          - Assamese
+          - Bengali
+          - Bhutia
+          - English Core
+          - English Elective
+          - French
+          - German
+          - Gujarati
+          - Hindi Elective
+          - Hindi Core
+          - Hindustani Music (Melodic)
+          - Hindustani Music (Percussion)
+          - Hindustani Music (Vocal)
+          - Home Science
+          - Japanese
+          - Kannada
+          - Kashmiri
+          - Kuchipudi
+          - Legal Studies
+          - Lepcha
+          - Limboo
+          - Malayalam
+          - Manipuri
+          - Marathi
+          - Mizo
+          - Nepali
+          - Odia
+          - Persian
+          - Psychology
+          - Punjabi
+          - Russian
+          - Sindhi
+          - Sociology
+          - Spanish
+          - Sanskrit Core
+          - Sanskrit Elective
+          - Tamil
+          - Tangkhul
+          - Telugu (AP)
+          - Telugu (Telangana)
+          - Tibetan
+          - Urdu Core
+          - Urdu Elective
+       
+       2. Mathematics-computing:
+          - Engg. Graphic
+          - Mathematics
+          - Computer Science
+          - Applied Mathematics
+          - Business Maths
+       
+       3. Vocational Education:
+          - Retail Management
+          - Information Technology
+          - Fashion Studies
+          - Automotive
+          - Health care
+          - IT and ITES
+          - Construction
+          - Plumbing
+          - Tourism and Hospitality
+          - Agriculture and Power
+          - Apparel
+          - Beauty
+       
+       4. Physical Education:
+          - Physical Education
+          - NCC
+          - Yoga
+       
+       5. Arts Education:
+          - Bharatanatyam
+          - Carnatic Melodic
+          - Carnatic Percussion
+          - Carnatic Vocal
+          - Dance Manipuri
+          - Dance Odissi
+          - Hindustani Music (Melodic)
+          - Hindustani Music (Percussion)
+          - Hindustani Music (Vocal)
+          - Applied Arts (Commercial Art)
+          - Painting
+          - Graphic
+          - Sculpture
+          - Music
+          - Dance
+          - Theatre
+       
+       6. Social Science:
+          - History
+          - Geography
+          - Political Science
+          - Political Science (Hindi)
+          - Psychology
+          - Economics
+          - Sociology
+        
+       
+       7. Interdisciplinary:
+          - Sustainability & Climate Change
+          - Health
+          - Media & Journalism
+          - Indian Knowledge
+          - KTPI
+          - KTPI(Hindi)
+          - Entrepreneurship
+           - Business Studies
+           - Accountancy
+       
+       8. Science:
+          - Biology
+          - Biotechnology
+          - Chemistry
+          - Physics  students marks and achievement are ${Object.entries(dictionary).map(([field, role]) => `${field}: ${role}`).join(', ')}. remeber to take achievement text into account Now based on the marks provided in each subject give me exactly 3 subjects strictly from  4 categories from  above 8 categories (always include vocational education as a category).Also give answer for language only as "Foreign Languages" or "Indigenous Indian language". give response strictly in 4 points only  `,
+                              },
+                          ],
+                          max_tokens: 100,
+                      }),
+                  });
+
+                  const data = await response.json();
+                  console.log(JSON.stringify(data));
+                  return data.choices[0];
+              } catch (error) {
+                  console.error("Error:", error.message);
+              }
+          }
+          
+          outputContainer.innerHTML = `<pre>${JSON.stringify(result.content.message, null, 2)}</pre>`;
+      </script>
+  </div>
+
+  <div id="outputContainer">
+
+  </div>
+  
+  
+  
+
+    <div id="foot">
+        <div class="footer">
+            <div class="waves">
+              <div class="wave" id="wave1"></div>
+              <div class="wave" id="wave2"></div>
+              <div class="wave" id="wave3"></div>
+              <div class="wave" id="wave4"></div>
+            </div>
+            <ul class="social-icon">
+              <li class="social-icon_item"><a class="social-icon_link" href="#">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a></li>
+              <li class="social-icon_item"><a class="social-icon_link" href="#">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a></li>
+              <li class="social-icon_item"><a class="social-icon_link" href="#">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a></li>
+              <li class="social-icon_item"><a class="social-icon_link" href="#">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a></li>
+            </ul>
+            <ul class="menu">
+              <li class="menu_item"><a class="menu_link" href="#">Home</a></li>
+              <li class="menu_item"><a class="menu_link" href="#">About</a></li>
+              <li class="menu_item"><a class="menu_link" href="#">Services</a></li>
+              <li class="menu_item"><a class="menu_link" href="#">Team</a></li>
+              <li class="menu_item"><a class="menu_link" href="#">Contact</a></li>
+        
+            </ul>
+          
+          </footer>
+          <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+          <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </div>
+
+</body>
+</html>

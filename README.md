@@ -25,9 +25,31 @@ Making career choices and AI based counselling accessible to every child at seco
   ```
   node index.js
   ```
-The application will be accessible in your web browser at http://localhost:3000. You can now begin using the app to maintain a journal, set wellness goals, and use the meditation timer.
+The application will be accessible in your web browser at http://localhost:3000. You can now begin using the app to access roadmaps and get NEP personal counseling.
 
+![home](Images/home.png)
 
+<h2>Features:</h2>
+
+### 1. Career Counselling Quiz
+Our project provides a career counseling quiz designed to assist you in determining your career path based on your personalities and interests.
+
+![Quiz](Images/quiz.png)
+
+### 2. Career Roadmaps
+The roadmap functionality enables you to retrieve a personalized career roadmap tailored to your individual professional journey.
+
+![Roadmaps](Images/Roadmaps.png)
+
+### 3. Job Score
+The job score feature assists in determining the risk associated with the job you are considering pursuing in the near future.
+
+![Job Score](Images/score.png)
+
+### 4. Marks Upload
+The Marks Upload feature facilitates the model in training based on your academic performance, ultimately offering personalized career recommendations aligned with both your personality and marks.
+
+![Marks Upload](Images/upload.png)
 
 <h2>Contributing:</h2>
 We welcome contributions from the community to improve and enhance the WebApp. If you would like to contribute, please follow these steps:

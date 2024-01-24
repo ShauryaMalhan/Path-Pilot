@@ -10,10 +10,10 @@ Making career choices and AI based counselling accessible to every child at seco
 <h2>Getting Started:</h2>
 
 1. Clone the repository to your local machine:
-   ```
-   git clone https://github.com/ShauryaMalhan/Path-Pilot/tree/main
-   ```
-2. Install the required dependencies:
+  ```bash
+  git clone https://github.com/ShauryaMalhan/Path-Pilot/tree/main
+  ```
+3. Install the required dependencies:
   ```
   npm install
   ```

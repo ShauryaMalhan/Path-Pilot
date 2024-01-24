@@ -25,6 +25,9 @@ Making career choices and AI based counselling accessible to every child at seco
   ```
   node index.js
   ```
+The application will be accessible in your web browser at http://localhost:3000. You can now begin using the app to maintain a journal, set wellness goals, and use the meditation timer.
+
+
 
 <h2>Contributing:</h2>
 We welcome contributions from the community to improve and enhance the WebApp. If you would like to contribute, please follow these steps:

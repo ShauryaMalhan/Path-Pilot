@@ -2,9 +2,13 @@
 Making career choices and AI based counselling accessible to every child at secondary level along with aptitude tests and detailed career paths
 <h2>Abstract:</h2>
 1. Assisting individuals in making informed career choices.
+<br>
 2. OpenAI API integration for personality trait analysis.
+<br>
 3. Features: Personalized Career Counseling, Profession Road Maps, NEP Counseling!
+<br>
 4. Predict Job Safety Score
+<br>
 5. Marks-Based Subject Suggestions!
 
 <h2>Getting Started:</h2>
@@ -13,7 +17,7 @@ Making career choices and AI based counselling accessible to every child at seco
   ```bash
   git clone https://github.com/ShauryaMalhan/Path-Pilot/tree/main
   ```
-3. Install the required dependencies:
+2. Install the required dependencies:
   ```
   npm install
   ```
